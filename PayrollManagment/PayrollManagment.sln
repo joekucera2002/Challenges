@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollManagement.Services", "PayrollManagement.Services\PayrollManagement.Services.csproj", "{CDCF770F-C9C5-49A8-A5A2-82ACA16018FC}"
 EndProject
@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollManagement.Web.Repor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollManagement.Web.Reporting.Tests", "PayrollManagement.Web.Reporting.Tests\PayrollManagement.Web.Reporting.Tests.csproj", "{06E59BF2-38A2-409A-9904-FD4348DC1E4C}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PayrollManagement.Data", "PayrollManagement.Data\PayrollManagement.Data.sqlproj", "{6FB47DC9-83BF-45EF-8A81-8B21EF19AACD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollManagement.Data", "PayrollManagement.Data\PayrollManagement.Data.csproj", "{C1684FC0-59B5-4EB7-8567-1C43347795E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +49,10 @@ Global
 		{06E59BF2-38A2-409A-9904-FD4348DC1E4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06E59BF2-38A2-409A-9904-FD4348DC1E4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06E59BF2-38A2-409A-9904-FD4348DC1E4C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6FB47DC9-83BF-45EF-8A81-8B21EF19AACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6FB47DC9-83BF-45EF-8A81-8B21EF19AACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6FB47DC9-83BF-45EF-8A81-8B21EF19AACD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6FB47DC9-83BF-45EF-8A81-8B21EF19AACD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C1684FC0-59B5-4EB7-8567-1C43347795E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1684FC0-59B5-4EB7-8567-1C43347795E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1684FC0-59B5-4EB7-8567-1C43347795E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1684FC0-59B5-4EB7-8567-1C43347795E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
