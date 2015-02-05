@@ -1,0 +1,30 @@
+PayrollManagement.Data.Schema
+	- Employee
+		- Id
+		- FirstName
+		- LastName
+	- Dependent
+		- Id
+		- EmployeeId
+		- FirstName
+		- LastName
+	- Deduction
+		- EmployeeId
+		- Amount
+
+PayrollManagement.Services (WebAPI)
+	- EmployeeController
+		- GetEmployees()
+		- Get(id)
+	- CalculationController
+	
+		
+PayrollManagement.Web (MVC)
+	- HomeController
+		- Index
+			- API.GetEmployees()
+			
+
+PayrollManagement.Web.Reporting (MVC)
+	- HomeController
+		- Index
