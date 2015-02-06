@@ -48,7 +48,13 @@
   <ItemGroup>
     <Compile Include="Entities\Dependent.cs" />
     <Compile Include="Entities\Employee.cs" />
+    <Compile Include="IPayrollRepository.cs" />
     <Compile Include="Mappers\EmployeeMapper.cs" />
+    <Compile Include="Mappers\DependentMapper.cs" />
+    <Compile Include="Migration\PayrollContextMigrationConfiguration.cs" />
+    <Compile Include="Migration\PayrollDataSeeder.cs" />
+    <Compile Include="PayrollContext.cs" />
+    <Compile Include="PayrollRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

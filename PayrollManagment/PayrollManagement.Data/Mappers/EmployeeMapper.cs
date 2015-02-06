@@ -22,8 +22,6 @@ namespace PayrollManagement.Data.Mappers
 
             this.Property(c => c.FirstName).HasMaxLength(255);
             this.Property(c => c.LastName).HasMaxLength(255);
-
-
         }
     }
 }
