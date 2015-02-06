@@ -12,10 +12,11 @@ namespace PayrollManagement.Data
         IQueryable<Employee> GetAllEmployees();
         Employee GetEmployeeById(Int32 id);
         Employee GetEmployeeByName(String firstName, String lastName);
-        
+        Dependent GetDependentById(Int32 id);
+
         Int32 InsertDependent(Dependent dependent);
 
         Boolean Update(Employee current, Employee original);
-        Boolean Update(Dependent dependent);
+        Boolean Update(Dependent current, Dependent original);
     }
 }

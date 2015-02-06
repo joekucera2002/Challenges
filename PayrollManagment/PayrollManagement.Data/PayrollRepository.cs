@@ -52,6 +52,15 @@ namespace PayrollManagement.Data
                     .SingleOrDefault();
         }
 
+        public Dependent GetDependentById(Int32 id)
+        {
+            return
+                _context
+                    .Dependents
+                    .Where(d => d.Id == id)
+                    .SingleOrDefault();
+        }
+
         public Int32 InsertDependent(Dependent dependent)
         {
             _context.Dependents.Add(dependent);
