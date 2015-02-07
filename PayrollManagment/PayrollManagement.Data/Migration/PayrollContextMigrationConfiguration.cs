@@ -15,12 +15,10 @@ namespace PayrollManagement.Data.Migration
             this.AutomaticMigrationsEnabled = true;
         }
 
-#if DEBUG
         protected override void Seed(PayrollContext context)
         {
-            new PayrollDataSeeder(context);
+            var seeder = new PayrollDataSeeder(context);
+            seeder.Seed();
         }
-#endif
-
     }
 }

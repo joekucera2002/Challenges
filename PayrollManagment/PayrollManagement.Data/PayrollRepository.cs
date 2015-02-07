@@ -28,6 +28,8 @@ namespace PayrollManagement.Data
             return 
                 _context
                     .Employees
+                    .Include("BenefitPlan")
+                    .Include("PayCycle")
                     .Include("Dependents")
                     .AsQueryable<Employee>();
         }
@@ -37,6 +39,8 @@ namespace PayrollManagement.Data
             return
                 _context
                     .Employees
+                    .Include("BenefitPlan")
+                    .Include("PayCycle")
                     .Include("Dependents")
                     .Where(e => e.Id == id)
                     .SingleOrDefault();
@@ -47,6 +51,8 @@ namespace PayrollManagement.Data
             return
                 _context
                     .Employees
+                    .Include("BenefitPlan")
+                    .Include("PayCycle")
                     .Include("Dependents")
                     .Where(e => e.FirstName == firstName && e.LastName == lastName)
                     .SingleOrDefault();
@@ -57,6 +63,8 @@ namespace PayrollManagement.Data
             return
                 _context
                     .Dependents
+                    .Include("Employee")
+                    .Include("Relationship")
                     .Where(d => d.Id == id)
                     .SingleOrDefault();
         }

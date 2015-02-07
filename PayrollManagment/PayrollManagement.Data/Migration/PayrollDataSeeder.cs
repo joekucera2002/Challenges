@@ -40,6 +40,7 @@ namespace PayrollManagement.Data.Migration
                     EmployeeCost = 2000,
                     DependentCost = 500
                 });
+            _context.SaveChanges();
         }
 
         private void SeedPayCycles()
@@ -50,6 +51,7 @@ namespace PayrollManagement.Data.Migration
                     Name = "Bi-Weekly",
                     NumPeriods = 26
                 });
+            _context.SaveChanges();
         }
 
         private void SeedRelationships()
@@ -65,20 +67,11 @@ namespace PayrollManagement.Data.Migration
                 {
                     Name = "Child"
                 });
+            _context.SaveChanges();
         }
 
         private void SeedEmployees()
         {
-            if (_context.BenefitPlans.Count() == 0)
-            {
-                SeedBenefitPlans();
-            }
-
-            if (_context.PayCycles.Count() == 0)
-            {
-                SeedPayCycles();
-            }
-
             BenefitPlan plan = _context.BenefitPlans.First();
             PayCycle cycle = _context.PayCycles.First();
 
@@ -117,6 +110,7 @@ namespace PayrollManagement.Data.Migration
                     BenefitPlan = plan,
                     PayCycle = cycle
                 });
+            _context.SaveChanges();
         }
     }
 }

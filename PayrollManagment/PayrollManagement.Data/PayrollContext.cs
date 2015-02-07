@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using PayrollManagement.Data.Entities;
-using PayrollManagement.Data.Mappers;
 using PayrollManagement.Data.Migration;
 
 namespace PayrollManagement.Data
@@ -19,23 +18,12 @@ namespace PayrollManagement.Data
         public DbSet<Dependent> Dependents { get; set; }
 
         public PayrollContext()
-            : base("PayrollConnection")
+            : base("PayrollManagement")
         {
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
 
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<PayrollContext, PayrollContextMigrationConfiguration>());
-        }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Configurations.Add(new BenefitPlanMapper());
-            modelBuilder.Configurations.Add(new PayCycleMapper());
-            modelBuilder.Configurations.Add(new RelationshipMapper());
-            modelBuilder.Configurations.Add(new EmployeeMapper());
-            modelBuilder.Configurations.Add(new DependentMapper());
-
-            base.OnModelCreating(modelBuilder);
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<PayrollContext, PayrollContextMigrationConfiguration>(true));
         }
     }
 }
