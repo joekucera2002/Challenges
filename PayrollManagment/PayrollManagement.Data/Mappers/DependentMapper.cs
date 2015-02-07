@@ -22,9 +22,13 @@ namespace PayrollManagement.Data.Mappers
             this.Property(c => c.FirstName).HasMaxLength(255);
             this.Property(c => c.LastName).HasMaxLength(255);
 
-            this.HasOptional(c => c.Employee)
+            this.HasRequired(c => c.Employee)
                 .WithMany(c => c.Dependents)
                 .Map(c => c.MapKey("EmployeeId"));
+
+            this.HasRequired(c => c.Relationship)
+                .WithRequiredDependent()
+                .Map(c => c.MapKey("RelationshipId"));
         }
     }
 }

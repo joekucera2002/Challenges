@@ -46,11 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\BenefitPlan.cs" />
     <Compile Include="Entities\Dependent.cs" />
     <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\PayCycle.cs" />
+    <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\Relationship.cs" />
     <Compile Include="IPayrollRepository.cs" />
+    <Compile Include="Mappers\BenefitPlanMapper.cs" />
     <Compile Include="Mappers\EmployeeMapper.cs" />
     <Compile Include="Mappers\DependentMapper.cs" />
+    <Compile Include="Mappers\PayCycleMapper.cs" />
+    <Compile Include="Mappers\RelationshipMapper.cs" />
     <Compile Include="Migration\PayrollContextMigrationConfiguration.cs" />
     <Compile Include="Migration\PayrollDataSeeder.cs" />
     <Compile Include="PayrollContext.cs" />

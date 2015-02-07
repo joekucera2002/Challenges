@@ -12,6 +12,9 @@ namespace PayrollManagement.Data
 {
     public class PayrollContext : DbContext
     {
+        public DbSet<BenefitPlan> BenefitPlans { get; set; }
+        public DbSet<PayCycle> PayCycles { get; set; }
+        public DbSet<Relationship> Relationships { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Dependent> Dependents { get; set; }
 
@@ -26,6 +29,9 @@ namespace PayrollManagement.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Configurations.Add(new BenefitPlanMapper());
+            modelBuilder.Configurations.Add(new PayCycleMapper());
+            modelBuilder.Configurations.Add(new RelationshipMapper());
             modelBuilder.Configurations.Add(new EmployeeMapper());
             modelBuilder.Configurations.Add(new DependentMapper());
 

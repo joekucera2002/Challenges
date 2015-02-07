@@ -22,6 +22,14 @@ namespace PayrollManagement.Data.Mappers
 
             this.Property(c => c.FirstName).HasMaxLength(255);
             this.Property(c => c.LastName).HasMaxLength(255);
+
+            this.HasRequired(c => c.BenefitPlan)
+                .WithRequiredDependent()
+                .Map(c => c.MapKey("BenefitPlanId"));
+
+            this.HasRequired(c => c.PayCycle)
+                .WithRequiredDependent()
+                .Map(c => c.MapKey("PayCycleId"));
         }
     }
 }

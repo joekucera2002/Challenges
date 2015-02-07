@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace PayrollManagement.Data.Entities
 {
-    public class Employee
+    public class Employee : Person
     {
-        public Int32 Id { get; set; }
-        public String FirstName { get; set; }
-        public String LastName { get; set; }
+        public BenefitPlan BenefitPlan { get; set; }
+        public PayCycle PayCycle { get; set; }
+
         public ICollection<Dependent> Dependents { get; set; }
 
         public Employee()
