@@ -16,3 +16,19 @@ textarea {
     max-width: 280px;
 }
 
+.float {
+    float: left;
+}
+
+.float-clear {
+    clear: both;
+}
+
+.margin {
+    margin: 5px;
+}
+
+.margin-vert-large {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}

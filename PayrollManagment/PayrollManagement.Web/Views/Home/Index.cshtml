@@ -1,11 +1,63 @@
-﻿@model PayrollManagement.Web.Models.Employee
+﻿@model PayrollManagement.Web.Models.Search
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Employee Search";
 }
 
-<h2>Index</h2>
+<h2>Employee Search</h2>
 
 <div>
-    
+    <h4>Enter your employee id number or first and last name:</h4>
+
+    <div>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            <div class="margin">
+                <div>
+                    @Html.LabelFor(m => m.Id, "Employee ID")    
+                </div>
+
+                <div>
+                    @Html.TextBoxFor(m => m.Id)
+                </div>
+            </div>
+
+            <div>
+                <p>-- OR --</p>
+            </div>
+
+            <div>
+                <div class="float margin">
+                    <div>
+                        @Html.LabelFor(m => m.Id, "First Name")
+                    </div>
+
+                    <div>
+                        @Html.TextBoxFor(m => m.FirstName)
+                    </div>
+                </div>
+
+                <div class="float margin">
+                    <div>
+                        @Html.LabelFor(m => m.Id, "LastName")
+                    </div>
+
+                    <div>
+                        @Html.TextBoxFor(m => m.LastName)
+                    </div>
+                </div>
+            </div>
+
+            <div class="float-clear margin margin-vert-large">
+                <input type="submit" value="Search"/>
+            </div>
+
+            if (Model != null)
+            {
+                <div class="margin-vert-large">
+                    <p>@Model.ErrorMessage</p>
+                </div>
+            }
+        }
+    </div>
 </div>
