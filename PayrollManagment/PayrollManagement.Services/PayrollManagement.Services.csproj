@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BenefitController.cs" />
     <Compile Include="Controllers\DependentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -100,9 +101,17 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PayrollManagement.CalculationEngine\PayrollManagement.CalculationEngine.csproj">
+      <Project>{f331de2d-2e5f-49b9-9642-ffec6dfd7662}</Project>
+      <Name>PayrollManagement.CalculationEngine</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PayrollManagement.Data\PayrollManagement.Data.csproj">
       <Project>{c1684fc0-59b5-4eb7-8567-1c43347795e3}</Project>
       <Name>PayrollManagement.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollManagement.Plugins\PayrollManagement.Plugins.csproj">
+      <Project>{00a4cb33-bf19-4f5e-8465-793ce9b229ef}</Project>
+      <Name>PayrollManagement.Plugins</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
