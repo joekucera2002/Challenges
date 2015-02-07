@@ -12,3 +12,7 @@ PayrollManagment/PayrollManagement.Services.Tests/obj/
 PayrollManagment/PayrollManagement.Data/bin/
 PayrollManagment/PayrollManagement.Data/obj/
 PayrollManagment/PayrollManagement.Services.Tests/bin/
+PayrollManagment/PayrollManagement.CalculationEngine/bin/
+PayrollManagment/PayrollManagement.CalculationEngine/obj/
+PayrollManagment/PayrollManagement.Plugins/bin/
+PayrollManagment/PayrollManagement.Plugins/obj/
