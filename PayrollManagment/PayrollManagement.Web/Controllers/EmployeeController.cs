@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using PayrollManagement.Web.Helpers;
 using PayrollManagement.Web.Models;
+using Kendo.Mvc.UI;
+using Kendo.Mvc.Extensions;
 
 namespace PayrollManagement.Web.Controllers
 {
@@ -29,7 +31,7 @@ namespace PayrollManagement.Web.Controllers
                 return View("Error", new Error() { Message = "Could not load employee data. Please try again." });
             }
 
-            employee.EmployeeDeduction = GetEmployeeCost(employee.Id);
+            employee.EmployeeDeduction = GetEmployeeCost(employee.Id).ToString("C");
 
             return View(employee);
         }

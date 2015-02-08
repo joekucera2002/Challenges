@@ -18,12 +18,16 @@ namespace PayrollManagement.Services.Controllers
         }
 
         // POST api/Dependent
-        public Int32 Post(Dependent dependent)
+        [HttpPost]
+        [Route("api/Dependent/Insert")]
+        public Int32 Insert(Dependent dependent)
         {
             return GetRepository().InsertDependent(dependent);
         }
 
         // PUT api/Dependent
+        [HttpPost]
+        [Route("api/Dependent/Update")]
         public Boolean Update(Dependent current)
         {
             IPayrollRepository repo = GetRepository();
@@ -32,6 +36,8 @@ namespace PayrollManagement.Services.Controllers
 
             if (original != null)
             {
+                current.RelationshipId = original.RelationshipId;
+
                 return repo.Update(current, original);
             }
 

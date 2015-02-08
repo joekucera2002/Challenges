@@ -13,12 +13,12 @@ namespace PayrollManagement.Web.Models
         public String LastName { get; set; }
         public Int16 Age { get; set; }
 
-        public Decimal MonthlyGross { get; set; }
-        public Decimal EmployeeDeduction { get; set; }
-        public Decimal TotalCost { get; set; }
+        public String MonthlyGross { get; set; }
+        public String EmployeeDeduction { get; set; }
+        public String TotalCost { get; set; }
 
         public BenefitPlan BenefitPlan { get; set; }
 
-        public ICollection<Dependent> Dependents { get; set; }
+        public List<Dependent> Dependents { get; set; }
     }
 }

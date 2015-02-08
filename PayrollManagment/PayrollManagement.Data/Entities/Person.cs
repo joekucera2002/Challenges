@@ -12,11 +12,9 @@ namespace PayrollManagement.Data.Entities
         [Key]
         public Int32 Id { get; set; }
 
-        [Required]
         [MaxLength(255)]
         public String FirstName { get; set; }
 
-        [Required]
         [MaxLength(255)]
         public String LastName { get; set; }
         

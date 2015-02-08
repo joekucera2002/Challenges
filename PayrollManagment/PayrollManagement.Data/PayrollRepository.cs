@@ -36,26 +36,37 @@ namespace PayrollManagement.Data
 
         public Employee GetEmployeeById(Int32 id)
         {
-            return
-                _context
+            Employee employee = _context
                     .Employees
                     .Include("BenefitPlan")
                     .Include("PayCycle")
-                    .Include("Dependents")
                     .Where(e => e.Id == id)
                     .SingleOrDefault();
+
+            if (employee != null)
+            {
+                employee.Dependents = _context.Dependents.Where(d => d.EmployeeId == employee.Id).ToList();
+            }
+
+            return employee;
         }
 
         public Employee GetEmployeeByName(String firstName, String lastName)
         {
-            return
-                _context
+            Employee employee = _context
                     .Employees
                     .Include("BenefitPlan")
                     .Include("PayCycle")
                     .Include("Dependents")
                     .Where(e => e.FirstName == firstName && e.LastName == lastName)
                     .SingleOrDefault();
+
+            if (employee != null)
+            {
+                employee.Dependents = _context.Dependents.Where(d => d.EmployeeId == employee.Id).ToList();
+            }
+
+            return employee;
         }
 
         public Dependent GetDependentById(Int32 id)
@@ -71,6 +82,10 @@ namespace PayrollManagement.Data
 
         public Int32 InsertDependent(Dependent dependent)
         {
+            Employee employee = _context.Employees.Where(e => e.Id == dependent.EmployeeId).Single();
+
+            dependent.Employee = employee;
+            
             _context.Dependents.Add(dependent);
             _context.SaveChanges();
 
@@ -87,7 +102,8 @@ namespace PayrollManagement.Data
 
         public bool Update(Dependent current, Dependent original)
         {
-            _context.Entry(original).CurrentValues.SetValues(current);
+            //_context.Entry(original).CurrentValues.SetValues(current);
+            //_context.SaveChanges();
 
             return true;
         }

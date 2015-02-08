@@ -1,0 +1,26 @@
+﻿@model System.Collections.Generic.List<PayrollManagement.Web.Reporting.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employee Report</h2>
+
+<div>
+    @(Html.Kendo().Grid<PayrollManagement.Web.Reporting.Models.Employee>()
+            .Name("grid")
+            .Columns(columns =>
+            {
+                columns.Bound(p => p.FirstName);
+                columns.Bound(p => p.LastName).Width(100);
+                columns.Bound(p => p.TotalCost).Width(100);
+            })
+            .Pageable(p => p.Refresh(true))
+            .Sortable()
+            .Scrollable()
+            .HtmlAttributes(new { style = "height:430px;" })
+            .DataSource(dataSource => dataSource
+                .Ajax()
+                .Read(read => read.Action("Read", "Grid")))
+    )
+</div>
