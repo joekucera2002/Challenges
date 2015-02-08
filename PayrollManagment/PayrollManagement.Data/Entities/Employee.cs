@@ -12,6 +12,7 @@ namespace PayrollManagement.Data.Entities
     {
         public BenefitPlan BenefitPlan { get; set; }
         public PayCycle PayCycle { get; set; }
+        public Decimal MonthlyGross { get; set; }
 
         [Required]
         [ForeignKey("BenefitPlan")]

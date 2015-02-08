@@ -37,7 +37,7 @@ namespace PayrollManagement.Data.Migration
                 new BenefitPlan()
                 {
                     Name = "HMO Plan A - 2015",
-                    EmployeeCost = 2000,
+                    EmployeeCost = 1000,
                     DependentCost = 500
                 });
             _context.SaveChanges();
@@ -81,7 +81,8 @@ namespace PayrollManagement.Data.Migration
                     FirstName = "John",
                     LastName = "Smith",
                     BenefitPlan = plan, 
-                    PayCycle = cycle
+                    PayCycle = cycle, 
+                    MonthlyGross = 2000
                 });
 
             _context.Employees.Add(
@@ -90,7 +91,8 @@ namespace PayrollManagement.Data.Migration
                     FirstName = "Jill",
                     LastName = "Werner",
                     BenefitPlan = plan,
-                    PayCycle = cycle
+                    PayCycle = cycle,
+                    MonthlyGross = 2000
                 });
 
             _context.Employees.Add(
@@ -99,7 +101,8 @@ namespace PayrollManagement.Data.Migration
                     FirstName = "Derek",
                     LastName = "Jeter",
                     BenefitPlan = plan,
-                    PayCycle = cycle
+                    PayCycle = cycle,
+                    MonthlyGross = 2000
                 });
 
             _context.Employees.Add(
@@ -108,7 +111,8 @@ namespace PayrollManagement.Data.Migration
                     FirstName = "Robert",
                     LastName = "Barone",
                     BenefitPlan = plan,
-                    PayCycle = cycle
+                    PayCycle = cycle,
+                    MonthlyGross = 2000
                 });
             _context.SaveChanges();
         }

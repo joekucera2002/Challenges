@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,10 +16,10 @@ namespace PayrollManagement.Data.Entities
         [MaxLength(255)]
         public String Name { get; set; }
 
-        [DataType("money")]
+        [Column(TypeName = "Money")]
         public Decimal EmployeeCost { get; set; }
 
-        [DataType("money")]
+        [Column(TypeName = "Money")]
         public Decimal DependentCost { get; set; }
     }
 }

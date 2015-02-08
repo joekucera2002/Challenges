@@ -80,6 +80,7 @@ namespace PayrollManagement.Data
         public Boolean Update(Employee current, Employee original)
         {
             _context.Entry(original).CurrentValues.SetValues(current);
+            _context.SaveChanges();
 
             return true;
         }

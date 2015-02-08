@@ -1,0 +1,103 @@
+﻿@model PayrollManagement.Web.Models.Employee
+
+@{
+    ViewBag.Title = "Edit Employee";
+}
+
+@section head {
+    @Scripts.Render("~/Scripts/Employee.js")
+}
+
+<h2>Edit Employee</h2>
+
+<div>
+    <h4>Employee Information - Employee # @Model.Id</h4>
+
+    @Html.HiddenFor(m => m.Id)
+
+    <div>
+        <div class="float margin">
+            <div>
+                @Html.LabelFor(m => m.FirstName, "First Name")
+            </div>
+
+            <div>
+                @Html.TextBoxFor(m => m.FirstName)
+            </div>
+        </div>
+
+        <div class="float margin">
+            <div>
+                @Html.LabelFor(m => m.LastName, "LastName")
+            </div>
+
+            <div>
+                @Html.TextBoxFor(m => m.LastName)
+            </div>
+        </div>
+
+        <div class="float margin">
+            <div>
+                @Html.LabelFor(m => m.Age, "Age")
+            </div>
+
+            <div>
+                @Html.TextBoxFor(m => m.Age)
+            </div>
+        </div>
+    </div>
+
+    <div class="float-clear">
+        <div class="float margin">
+            <div>
+                @Html.LabelFor(m => m.MonthlyGross, "Monthly Gross")
+            </div>
+
+            <div>
+                @Html.TextBoxFor(m => m.MonthlyGross, new { disabled = "disabled", @class = "disabled" })
+            </div>
+        </div>
+
+        <div class="float margin">
+            <div>
+                @Html.LabelFor(m => m.BenefitPlan.EmployeeCost, "Employee Cost")
+            </div>
+
+            <div>
+                @Html.TextBoxFor(m => m.BenefitPlan.EmployeeCost, new { disabled = "disabled", @class = "disabled" })
+            </div>
+        </div>
+
+        <div class="float margin">
+            <div>
+                @Html.LabelFor(m => m.EmployeeDeduction, "Employee Deduction")
+            </div>
+
+            <div>
+                @Html.TextBoxFor(m => m.EmployeeDeduction, new { disabled = "disabled", @class = "disabled" })
+            </div>
+        </div>
+
+        <div class="float margin">
+            <div>
+                @Html.LabelFor(m => m.TotalCost, "Total Cost")
+            </div>
+
+            <div>
+                @Html.TextBoxFor(m => m.TotalCost, new { disabled = "disabled", @class = "disabled" })
+            </div>
+        </div>
+    </div>
+
+    <div class="float-clear margin-vert-large">
+        <input id="UpdateEmployee" type="button" value="Update Employee" />
+    </div>
+</div>
+
+<div>
+    <h4>Dependents</h4>
+
+    <div>
+
+    </div>
+</div>

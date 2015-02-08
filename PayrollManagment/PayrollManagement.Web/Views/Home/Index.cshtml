@@ -1,4 +1,6 @@
-﻿@model PayrollManagement.Web.Models.Search
+﻿
+
+@model PayrollManagement.Web.Models.Search
 
 @{
     ViewBag.Title = "Employee Search";
@@ -29,7 +31,7 @@
             <div>
                 <div class="float margin">
                     <div>
-                        @Html.LabelFor(m => m.Id, "First Name")
+                        @Html.LabelFor(m => m.FirstName, "First Name")
                     </div>
 
                     <div>
@@ -39,7 +41,7 @@
 
                 <div class="float margin">
                     <div>
-                        @Html.LabelFor(m => m.Id, "LastName")
+                        @Html.LabelFor(m => m.LastName, "LastName")
                     </div>
 
                     <div>

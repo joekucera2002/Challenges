@@ -38,6 +38,10 @@ namespace PayrollManagement.Services.Controllers
 
             if (original != null)
             {
+                current.BenefitPlanId = original.BenefitPlanId;
+                current.MonthlyGross = original.MonthlyGross;
+                current.PayCycleId = original.PayCycleId;
+
                 return repo.Update(current, original);
             }
 

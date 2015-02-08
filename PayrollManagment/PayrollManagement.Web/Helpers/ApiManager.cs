@@ -4,6 +4,8 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
 
@@ -21,33 +23,82 @@ namespace PayrollManagement.Web.Helpers
         public T Get<T>(String location, Dictionary<String, String> queryParameters)
         {
             String url = BuildUrl(location, queryParameters);
-            String result = null;
+            T returnValue;
 
-            using (WebClient client = new WebClient())
+            try
             {
-                result = client.DownloadString(url);
+                using (HttpClient client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(_baseUrl);
+
+                    Task<String> response = client.GetStringAsync(url);
+
+                    response.Wait();
+
+                    if (!String.IsNullOrWhiteSpace(response.Result))
+                    {
+                        returnValue = Deserialize<T>(response.Result);
+                    }
+                    else
+                    {
+                        returnValue = default(T);
+                    }
+                }
+            }
+            catch
+            {
+                returnValue = default(T);
             }
             
-            return Deserialize<T>(result);
+            return returnValue;
+        }
+        
+        public Boolean Update<T>(String location, T content)
+        {
+            Boolean result;
+
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(_baseUrl);
+
+                    Task<HttpResponseMessage> response = client.PostAsJsonAsync<T>(location, content);
+                    
+                    response.Wait();
+                    response.Result.EnsureSuccessStatusCode();
+
+                    result = true;
+                }
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
         }
 
         private String BuildUrl(String location, Dictionary<String, String> queryParameters)
         {
-            String url = _baseUrl;
-
-            if (!url.EndsWith("?"))
-            {
-                url += "?";
-            }
-
-            foreach (KeyValuePair<String, String> pair in queryParameters)
+            String url = location;
+            
+            if (queryParameters != null)
             {
                 if (!url.EndsWith("?"))
                 {
-                    url += "&";
+                    url += "?";
                 }
 
-                url += String.Format("{0}={1}", pair.Key, pair.Value);
+                foreach (KeyValuePair<String, String> pair in queryParameters)
+                {
+                    if (!url.EndsWith("?"))
+                    {
+                        url += "&";
+                    }
+
+                    url += String.Format("{0}={1}", pair.Key, pair.Value);
+                }
             }
 
             return url;

@@ -22,8 +22,15 @@ namespace PayrollManagement.Web.Controllers
         public ActionResult Index(Search options)
         {
             if (IsValid(options))
-            {
-                return RedirectToRoute(new {controller = "Employee", action = "Index"});
+            {               
+                return RedirectToRoute(new 
+                { 
+                    controller = "Employee", 
+                    action = "Edit", 
+                    id = options.Id,
+                    firstName = options.FirstName,
+                    lastName = options.LastName
+                });
             }
 
             options.Id = null;
